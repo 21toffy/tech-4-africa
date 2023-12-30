@@ -1,11 +1,13 @@
 <template>
   <div class="main relative">
     <div
-      class="navbar fixed top-0 left-0 py-4 md:px-0 px-3 w-full z-30 bg-white overflow-hidden"
+      class="navbar fixed top-0 left-0 py-4 md:px-0 px-3 w-full z-30 overflow-hidden bg-white"
     >
       <div class="lgscreens">
         <div class="mainn container-center">
-          <div class="navbox flex justify-between items-center overflow-hidden">
+          <div
+            class="navbox flex justify-between items-center overflow-hidden hover:bootcamp-container-visible"
+          >
             <nuxt-link to="/">
               <div class="logobox">
                 <img
@@ -29,20 +31,33 @@
 
                   <li class="links flex items-center text-xl gap-1 group">
                     Editions
-                    <span
-                      ><img
+                    <span>
+                      <img
                         src="../../assets/images/icons/arrow_drop_down.svg"
                         alt=""
                         class="dropdown w-6 h-6 object-cover"
-                    /></span>
-                    <div class="editions">
-                      <ul>
-                        <nuxt-link to="/editions/firstEdition"
-                          ><li>edition1</li></nuxt-link
-                        >
-                        <nuxt-link to="/editions/secondEdition"
-                          ><li>edition2</li></nuxt-link
-                        >
+                      />
+                    </span>
+                    <div
+                      class="editions w-[11.75rem] h-[6.25rem] bg-[#FFFBF4] p-[0.6rem] py-0 absolute top-5 right-[360px] z-20 hidden group-hover:block"
+                    >
+                      <ul
+                        class="flex flex-col justify-center items-center gap-[1rem]"
+                      >
+                        <nuxt-link to="/editions/firstEdition">
+                          <li
+                            class="text-[#202054] text-sm font-medium leading-[1.25rem] underline"
+                          >
+                            1st bootcamp highlights
+                          </li>
+                        </nuxt-link>
+                        <nuxt-link to="/editions/secondEdition">
+                          <li
+                            class="text-[#202054] text-sm font-medium leading-[1.25rem] underline"
+                          >
+                            2nd bootcamp highlights
+                          </li>
+                        </nuxt-link>
                       </ul>
                     </div>
                   </li>
@@ -57,17 +72,25 @@
                       Become a sponsor
                     </button>
                   </li>
-                  <li class="waitlist-btn">
-                    <button class="btn1 text-white font-semibold rounded-lg bluebtn">
-                      Join waitlist
-                    </button>
-                  </li>
+                  <nuxt-link to="/register">
+                    <li class="waitlist-btn">
+                      <button
+                        class="btn1 text-white font-semibold rounded-lg bluebtn"
+                      >
+                        Join waitlist
+                      </button>
+                    </li></nuxt-link
+                  >
                 </ul>
               </div>
             </div>
             <div class="smallscreen block md:hidden">
               <button class="md:hidden block" @click="toggleMenu">
-                <img src="../../assets/images/icons/menu.svg" alt="" class="menu" />
+                <img
+                  src="../../assets/images/icons/menu.svg"
+                  alt=""
+                  class="menu"
+                />
               </button>
             </div>
           </div>
@@ -81,12 +104,16 @@
       :class="{ block: showMenu, hidden: !showMenu }"
     >
       <div>
-        <ul class="nav-links flex flex-col items-end gap-10 text-white font-semibold">
+        <ul
+          class="nav-links flex flex-col items-end gap-10 text-white font-semibold"
+        >
           <nuxt-link to="/partners">
             <li class="links text-xl">Partner with us</li>
           </nuxt-link>
           <nuxt-link to="/mentors">
-            <li class="links flex items-center text-xl gap-1">Mentors</li></nuxt-link
+            <li class="links flex items-center text-xl gap-1">
+              Mentors
+            </li></nuxt-link
           >
 
           <li class="links flex items-center text-xl gap-1">
@@ -110,9 +137,11 @@
             </button>
           </li>
           <li class="waitlist-btn">
-            <button class="btn1 text-white font-semibold rounded-lg bluebtn">
-              Join waitlist
-            </button>
+            <nuxt-link to="/register">
+              <button class="btn1 text-white font-semibold rounded-lg bluebtn">
+                Join waitlist
+              </button>
+            </nuxt-link>
           </li>
         </ul>
       </div>
@@ -122,10 +151,24 @@
 
 <script setup>
 const showMenu = ref(false);
+const isDropdownVisible = ref(true);
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;
 };
+
+const toggleDropdown = (value) => {
+  console.log("drop", value);
+  isDropdownVisible.value = value;
+};
 </script>
 
-<style></style>
+<style scoped>
+.bootcamp-container {
+  position: absolute;
+  top: 100%;
+  right: 480px;
+  /* display: none; */
+  transform: translateY(100%);
+}
+</style>

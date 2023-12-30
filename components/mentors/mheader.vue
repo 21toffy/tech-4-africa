@@ -5,7 +5,9 @@
         class="topcont flex justify-center flex-col gap-4 items-center max-w-[835px] text-center"
       >
         <div class="btn1">
-          <div class="pinkbg sm:px-10 px-5 py-2 font-semibold">
+          <div
+            class="pinkbg sm:px-10 px-5 py-2 font-semibold sm:mb-5 mb-0 lg:mb-0"
+          >
             <div class="text-greytext text-xs sm:text-[1.125rem]">
               Mentorship
             </div>
@@ -86,9 +88,9 @@
       </div>
 
       <div
-        class="btn mt-14 flex flex-col sm:flex-row sm:justify-center gap-6 items-center"
+        class="btn mt-14 flex flex-col sm:flex-row sm:justify-center gap-6 items-center px-1"
       >
-        <button @click="showMentorModal" class="bluebtn text-sm sm:text-base">
+        <button @click="showMentorModal" class="bluebtn text-xs sm:text-base">
           Become a Mentor
         </button>
         <mentor-modal
@@ -96,7 +98,9 @@
           @submit="onSubmit"
           @close="onClose"
         />
-        <div class="text sm:w-[244px] text-xs font-semibold px-3 text-center">
+        <div
+          class="text sm:w-[244px] text-xs lg:text-base font-semibold px-3 text-center"
+        >
           Over 50 professionals mentor for the bootcamp
         </div>
       </div>
